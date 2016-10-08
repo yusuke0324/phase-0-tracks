@@ -12,3 +12,4 @@ Branch is a repository made from master repository. It helps you to devide the w
 Commit is to make a save point which enable you to revert your files. In commiting, your commit message will help you and your team members to remind what the commit was all about.
 * What is a merge conflict?
 Merge conflict occurs when you try to merge some files which have been modified in each repository.
+....I've never experienced!
