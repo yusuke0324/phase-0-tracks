@@ -14,4 +14,12 @@ section#contact-info {
   font-size: 0.8em;
 }
 
-.
+/*this is a example of a pseudoselector, :hover.*/
+.class_p:hover{
+  color:red;
+}
+/*this is a practice class for the child element of another element */
+
+ul li{
+  color: blue;
+}
