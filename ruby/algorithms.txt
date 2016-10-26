@@ -1,0 +1,30 @@
+Elevator
+
+if the elevator door open
+  if you are not in the elevator
+   step forward and enter in the elevator
+   if a number which is the level you want to go button is not turned on the light
+     press the button
+     back to the first step
+  if you are in the elevator
+    if the level is where you want to go
+      step forward and get out of the elevator
+      end
+    back to the first step
+
+Going to the bathroom
+
+Go to the bathroom
+  if there are other people
+    wait behind
+    if you cannot hold it
+      ask a wo/men to exchange
+    go back to the fist step
+  if there is no one in front of you
+    look at the toilet stall
+    if there is open
+      go inside
+    if not
+      wait untill open
+  back to the fist step
+
