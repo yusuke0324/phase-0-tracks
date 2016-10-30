@@ -11,22 +11,9 @@
 # end loop
 # return the result letters
 
-def encrypt(password)
-  enrypted = ""
-  i = 0
-  while i < password.length do
-  # password.length.downto(0) do |i|
-    if password[i] == "z"
-      enrypted += "a"
-    else
-      # encrypted += password[i].next
-    end
-    i += 1
-  end
-  return enrypted
-end
+# puts decrypt(encrypt("swordfish"))
 
-puts encrypt("abc")
+# the input "swordfish" was encrypted first then the encrypted value was augments for decrypt. then the nested method returned decrypted encrypted input value
 
 # decryp with input
 # define alphabet variable "abcdefghijklmnopqrstuvwxyz"
@@ -37,3 +24,53 @@ puts encrypt("abc")
 #   put the alphabet to the resut letters variable
 # end loop
 #return the result letters
+
+def encrypt(password)
+  enrypted = ""
+  i = 0
+  while i < password.length do
+  # password.length.downto(0) do |i|
+    if password[i] == "z"
+      enrypted += "a"
+    else
+      enrypted += password[i].next
+    end
+    i += 1
+  end
+  return enrypted
+end
+
+
+def decrypt(encrypted)
+  i = 0
+  decrypted = ""
+  alphabet = "abcdefghijklmnopqrstuvwxyz"
+  while i < encrypted.length
+    decrypted_index = alphabet.index(encrypted[i]) -1
+    decrypted += alphabet[decrypted_index]
+    i +=1
+  end
+  return decrypted
+end
+
+while true do
+  puts "Hello agent! Would you like to [D]decrypt or [E]encrypt a password?"
+
+  operation = gets.chomp
+
+  if operation.downcase == "d"
+    puts "what's your encryoted password?"
+    puts "Decrypted password is:" + decrypt(gets.chomp)
+    break
+  elsif operation.downcase == "e"
+    puts "what's your password?"
+    puts "Encrypted password is:" + encrypt(gets.chomp)
+    break
+  end
+end
+#Test
+# puts encrypt("abc")
+# puts encrypt("zed")
+# puts decrypt("bcd")
+# puts decrypt("afe")
+
