@@ -42,16 +42,45 @@ def fib_recursive(number)
 end
 
 # p fib_recursive(100) == 218922995834555169026
- p fib(100) == 218922995834555169026
+ # p fib(100) == 218922995834555169026
+
+# 1. bubble sort
+# 2. We got the concept from https://visualgo.net/
+# 3. 
+# 4. Pseudocode
+#In an array, we should compare the first elements to the next one and switch position if the first elem is bigger than second one if we should compare the next two elements. We should continue doing this until the end.
+
+#Define bubble sort method with an argument of array
+#Define fixed_position
+#loop from 0 to fixed_position
+#compare the left element and right element
+#if the left element is greater than the right element then swith the element position.
+#define a temporary integer and put the value to it.
+#if not, increment index of the left elem
 
 
+def bubble_sort(array)
+  fixed_position = array.length
+  while true
+  left_elem_index = 0
+    while true
+      #compare the left and the right
+      left = array[left_elem_index]
+      right = array[left_elem_index +1]
+      if left > right then
+        array[left_elem_index] = right
+        array[left_elem_index + 1] = left
+        left_elem_index +=1
+      else
+        left_elem_index +=1
+      end
+      break if left_elem_index +1 == fixed_position
+    end
+    fixed_position -=1
+    break if left_elem_index ==1
+  end
+  return array
+end
 
-
-
-
-
-
-
-
-
-
+array = [5,3,4,3,34,23,5,43,2,4,]
+p bubble_sort(array)
