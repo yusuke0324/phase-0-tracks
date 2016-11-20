@@ -24,26 +24,36 @@ class VirusPredictor
     predicted_deaths
     speed_of_spread
   end
-
   private
+
 
   #calculating the number of deaths and prints the results
   def predicted_deaths()
     # predicted deaths is solely based on population density
     if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
+      # number_of_deaths = (@population * 0.4).floor
+      cal_number_of_deaths(0.4)
     elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
+      # number_of_deaths = (@population * 0.3).floor
+      cal_number_of_deaths(0.3)
     elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
+      # number_of_deaths = (@population * 0.2).floor
+      cal_number_of_deaths(0.2)
     elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
+      # number_of_deaths = (@population * 0.1).floor
+      cal_number_of_deaths(0.1)
     else
-      number_of_deaths = (@population * 0.05).floor
+      cal_number_of_deaths(0.05)
+      # number_of_deaths = (@population * 0.05).floor
     end
 
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+    # print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
+  end
+
+  def cal_number_of_deaths(persent)
+    number_of_deaths = (@population * persent).floor
+    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
   end
   #the spread of the virus in months based on the population_density, then will print how fast it will spread
   def speed_of_spread() #in months
