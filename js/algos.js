@@ -26,21 +26,16 @@ function quickSortLength(array, left, right){
   var pivot = array[left]
   var i = left + 1;
   var j = right;
-  console.log("array:" + array);
-  console.log("pivot:" + pivot);
-  console.log("left:" + left);
-  console.log("right:" + right);
+
   while(i < j){
     //find an elem which is bigger than or equal to pivot from left
-    if(array[i] <= pivot && i < right){
+    if(array[i].length <= pivot.length && i < right){
       i++;
     }else{
       //find an elem which is smaller than pivot from right
-      if(array[j] > pivot && left < j){
+      if(array[j].length > pivot.length && left < j){
         j--;
       }else if(i < j){
-        console.log("array["+i+"]:" + array[i]);
-        console.log("array["+j+"]:" + array[j]);
         //swap the elements
         var tmp = array[i];
         array[i] = array[j];
@@ -50,9 +45,7 @@ function quickSortLength(array, left, right){
       }
     }
   }
-  console.log("i = " + i);
-  console.log("j = " + j);
-  if(array[left] > array[j]){
+  if(array[left].length > array[j].length){
     array[left] = array[j];
     array[j] = pivot;
 //call self (array, left, i -1)
@@ -75,6 +68,15 @@ function quickSortLength(array, left, right){
     return array;
 }
 
+function getLongestElem(array){
+  // ascending sort array
+  var sortedArray = quickSortLength(array, 0, array.length - 1);
+  var longestElem = sortedArray[sortedArray.length -1];
+
+  return longestElem;
+}
+
 // console.log(getLongest(["long phrase","longest phrase","longer phrase"]))
 
-console.log(quickSortLength([20,90,2,41,33,42,53,225,5,3,32,4,5,2,323,3,44,5],0,17));
+array = ["appple", "I", "have", "pen", "tea", "applepen", "a"];
+console.log(getLongestElem(array));
