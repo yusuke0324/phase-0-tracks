@@ -4,26 +4,31 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
+# Is used for loading files using the relative path. You do not have to add the extension
+#name for the file if it's in the same project folder
 #
-#
+
 require_relative 'state_data'
 
 class VirusPredictor
 
+  #initializing the data
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+  #prediciting the deaths, and the spread of death for the population and state
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
   private
 
-  def predicted_deaths(population_density, population, state)
+  #calculating the number of deaths and prints the results
+  def predicted_deaths()
     # predicted deaths is solely based on population density
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -40,8 +45,8 @@ class VirusPredictor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
-
-  def speed_of_spread(population_density, state) #in months
+  #the spread of the virus in months based on the population_density, then will print how fast it will spread
+  def speed_of_spread() #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
@@ -82,6 +87,14 @@ california.virus_effects
 alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
 alaska.virus_effects
 
+def all_state(states)
+  states.each{|state, population|
+    projection = VirusPredictor.new(state,population[:population_density], population[:population])
+    projection.virus_effects
+  }
+end
+
+all_state(STATE_DATA)
 
 #=======================================================================
-# Reflection Section
+# Reflection Section​
