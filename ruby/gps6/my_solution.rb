@@ -108,3 +108,16 @@ all_state(STATE_DATA)
 
 #=======================================================================
 # Reflection Section​
+
+
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+  #Using hash rocket (=>) is an old way to set values to kyes. The other way is simpler way to set vlues to keys in hash. Especially, keys will be symbols if we use ':' after key.
+# What does require_relative do? How is it different from require?
+  #require_relative defines file path (relative path) to load other files.
+  #require is an old way to do this and we need specific syntax to load other files not located at current directory.
+# What are some ways to iterate through a hash?
+  #Hash has each method like hash.each do |key, value|
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+  #virus_effects calls other method with several augments which are instance variables. However, the instance variables can be accessed from the called method in virus_effects, which mean the called two methods don't need to get the augments.
+# What concept did you most solidify in this challenge?
+  #It's about DRY coding. In stead of hard coding, programmer should consider efficent code like DRY.
