@@ -1,0 +1,39 @@
+1.sqlite> SELECT * FROM items;
+
+1|iphone|white|true|1|1
+2|Macbook|white|true|1|2
+
+2.sqlite> UPDATE items SET number=2 WHERE name = "iphone";
+sqlite> SELECT * FROM items;
+
+1|iphone|white|true|2|1
+2|Macbook|white|true|1|2
+
+3.sqlite> SELECT * FROM items, owners WHERE items.owner_id = owners.id;
+
+1|iphone|white|true|2|1|1|yusuke|27
+2|Macbook|white|true|1|2|2|mariko|28
+
+4.sqlite> SELECT items.name, owners.name from items JOIN owners ON items.owner_id = owners.id;
+
+iphone|yusuke
+Macbook|mariko
+
+5.sqlite> DELETE from  items WHERE name = "iphone";
+
+sqlite> SELECT * FROM items;
+2|Macbook|white|true|1|2
+
+Other different join queries;
+*outer join
+sqlite> SELECT * FROM items LEFT OUTER JOIN owners ON items.owner_id = owners.id;
+2|Macbook|white|true|1|2|2|mariko|28
+
+sqlite> SELECT * FROM owners LEFT OUTER JOIN items ON items.owner_id = owners.id;
+1|yusuke|27||||||
+2|mariko|28|2|Macbook|white|true|1|2
+
+*inner join
+sqlite> SELECT * FROM owners JOIN items ON items.owner_id = owners.id; 
+2|mariko|28|2|Macbook|white|true|1|2
+
