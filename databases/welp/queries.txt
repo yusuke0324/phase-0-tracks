@@ -1,0 +1,16 @@
+1.sqlite> SELECT * FROM reviews INNER JOIN businesses ON  businesses.id = reviews.business_id INNER JOIN users ON reviews.user_id = users.id;
+
+1|4|good!!|1|1|1|chiken bar|1|Yusuke|Takeuchi
+2|2|soso!!|2|1|2|nademo shop|1|Yusuke|Takeuchi
+3|1|bad!!|2|2|2|nademo shop|2|John|Smith
+
+2.sqlite> SELECT users.first_name, businesses.name, reviews.stars, reviews.comment FROM reviews INNER JOIN businesses ON  businesses.id = reviews.business_id INNER JOIN users ON reviews.user_id = users.id;
+
+Yusuke|chiken bar|4|good!!
+Yusuke|nademo shop|2|soso!!
+John|nademo shop|1|bad!!
+
+3.sqlite> SELECT * FROM reviews INNER JOIN businesses ON  businesses.id = reviews.business_id INNER JOIN users ON reviews.user_id = users.id WHERE businesses.id = 2;
+
+2|2|soso!!|2|1|2|nademo shop|1|Yusuke|Takeuchi
+3|1|bad!!|2|2|2|nademo shop|2|John|Smith
