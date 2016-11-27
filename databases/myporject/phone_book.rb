@@ -61,7 +61,7 @@ while true do
   puts "How may I help you?"
   puts "1|Show all contact info on the books"
   puts "2|Create new contact"
-  puts "9|exit"
+  puts "9|Exit"
   input_first = gets.chomp
   if input_first == "9"
     exit
