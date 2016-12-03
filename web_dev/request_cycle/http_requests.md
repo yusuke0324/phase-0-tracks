@@ -1,9 +1,9 @@
 1. What are some common HTTP status codes?
-  *200 OK
-  *400 Bad Request
-  *401 Unauthorized
-  *404 Not Found
-  *500 Internal Server Error
+  * 200 OK
+  * 400 Bad Request
+  * 401 Unauthorized
+  * 404 Not Found
+  * 500 Internal Server Error
 
 2. What is the difference between a GET request and a POST request? When might each be used?
   GET is a method to retrieve resources, while POST is to submit data to be processed to a specified resources.
