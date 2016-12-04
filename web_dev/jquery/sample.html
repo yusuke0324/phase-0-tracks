@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sample jQuery</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <style>
+    .stick_hat {
+      height: 60%;
+      width: 70%;
+    }
+    .area {
+      height:200px;
+      width:200px;
+    }
+    .message {
+      color: red;
+      size: 140%
+    }
+    img {
+      display: none;
+    }
+  </style>
+  <script>
+    $(function(){
+      $('.message').text('Mouse hover below!!');
+      // mouse oever
+      $('.area').mouseover(function(event) {
+        /* Act on the event */
+        $('.area').css('display', 'none');
+        $('.stick_hat').css('display', 'inline');
+        $('.message').text('Click!');
+      });
+      //first click
+      $('.stick_hat').click(function(){
+        $('.stick_hat').css('display', 'none');
+        $('.star_hat').css('display', 'inline');
+        $('.message').text('Double Click!!');
+      })
+      //second double click
+      $('.star_hat').dblclick(function(event) {
+        /* Act on the event */
+        $('.message').text('Congratulations!!!');
+        $('.star_hat').css('display', 'none');
+        $('.money_hat').css('display', 'inline');
+      });
+    })
+  </script>
+</head>
+<body>
+
+  <p>
+    This is a sample jQuery page.<br>
+  </p>
+  <p class="message"></p>
+  <div class="area">
+  </div>
+  <img src="http://cliparts.co/cliparts/dc4/5B8/dc45B8Mgi.jpg" class="stick_hat" alt="stick">
+  <img src="http://icons.iconarchive.com/icons/dapino/magic-people/256/Magic-hat-icon.png" class="star_hat" alt="">
+  <img src="http://www.thedailysheeple.com/wp-content/uploads/2013/12/1647736-3d-illustration-of-magic-hat-and-dollars-300x225.jpg" class="money_hat" alt="">
+</body>
+</html>
